@@ -1,0 +1,2 @@
+import {NextRequest,NextResponse} from 'next/server';import{tryRole}from'@/lib/auth-guard';import{withUserContext}from'@/lib/db-session';
+export async function DELETE(req:NextRequest,{params}:{params:Promise<{listing_id:string}>}){const[u,e]=await tryRole(req,['buyer']);if(e)return e;const{listing_id}=await params;await withUserContext(u!.userId,tx=>tx.favorite.deleteMany({where:{userId:u!.userId,listingId:listing_id}}));return NextResponse.json({message:'Favorite removed'})}

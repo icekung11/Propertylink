@@ -1,0 +1,48 @@
+{
+  "name": "figma-make-app",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "seed": "node scripts/seed-db.cjs",
+    "typecheck": "tsc --noEmit --incremental false",
+    "test:workflows": "node scripts/verify-non-sms.cjs",
+    "test:api": "node scripts/recheck-system.cjs",
+    "test:migrations": "node scripts/verify-migrations.cjs",
+    "test:rls": "node scripts/verify-rls.cjs",
+    "test:browser": "node scripts/verify-browser.cjs",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint src scripts",
+    "format": "oxfmt",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate deploy",
+    "db:studio": "prisma studio",
+    "postinstall": "prisma generate"
+  },
+  "dependencies": {
+    "lucide-react": "^1.46.0",
+    "next": "^15.5.28",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "overrides": {
+    "postcss": "$postcss"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.7",
+    "@prisma/client": "^5.22.0",
+    "@tailwindcss/postcss": "^4.0.0",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^15.5.28",
+    "oxfmt": "^0.2.0",
+    "postcss": "^8.5.29",
+    "prisma": "^5.22.0",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.7.0"
+  }
+}

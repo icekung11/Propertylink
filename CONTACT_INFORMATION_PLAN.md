@@ -1,0 +1,9 @@
+# Listing contact information correction
+
+Applied 2026-10-20: additive SQL succeeded, Prisma Client regenerated, and seed contact fields populated for all 10 seed listings. Build passed; HTTP probes 83/83 and expanded Phase 2 verification 41/41 passed, including public phone omission and authenticated Buyer reveal. Seed repeat preserved counts. Temporary phone-reveal test records were removed. Original login identity contacts were preserved.
+
+Inspected live public schema: only users.email/users.phone exist; listings has no dedicated contact fields and no LINE field exists. Authentication seed identities use isolated .invalid emails and dummy phones, so they do not preserve sample listing contact channels.
+
+Plan: add nullable varchar contact_phone/contact_email/contact_line columns to listings using an explicit, idempotent additive SQL script. Existing rows default to NULL; no rows, constraints, policies or triggers are removed/changed. Update Prisma mapping and regenerate the client, then upsert sample contact values only on deterministic seed listings. Keep authentication identity email/phone unchanged. Public listing payloads omit contactPhone; Buyer-only reveal-phone reads the listing contact with seller account fallback. Email/LINE are explicit published listing contacts, without exposing private account emails. Adapt API data and wire phone reveal in Detail.
+
+This additive change is required for the user's requested missing seed contact data. Existing migration baseline is inconsistent, so do not run migrate deploy/reset or apply historical migrations. Apply only prisma/manual/listing-contact-information.sql. Reapplying the script is safe. If rolling back application code, leave these optional columns in place to preserve data. Verify all seed listings have contact values, public responses omit phone, Buyer reveal returns the persisted contact, and repeated seed keeps record counts stable.

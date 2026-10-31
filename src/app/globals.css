@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --color-primary: #1672DC;
+  --color-primary-dark: #125BB8;
+  --color-navy: #102B4B;
+  --color-pl-text: #10243E;
+  --color-secondary: #66758A;
+  --color-pl-bg: #F5F8FC;
+  --color-success: #18A66A;
+  --color-warning: #F4B740;
+  --color-danger: #E5484D;
+  --color-pl-border: #D9E1EA;
+
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-pill: 999px;
+}
+
+body {
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  background-color: #F5F8FC;
+  color: #10243E;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #D9E1EA; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #66758A; }
+
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid #1672DC;
+  outline-offset: 2px;
+}
+
+/* Transitions */
+.transition-default {
+  transition: all 0.15s ease;
+}

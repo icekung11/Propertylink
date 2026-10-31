@@ -1,0 +1,16 @@
+* text=auto
+*.ts text eol=lf
+*.tsx text eol=lf
+*.js text eol=lf
+*.cjs text eol=lf
+*.mjs text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.sql text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.css text eol=lf
+*.prisma text eol=lf
+# Preserve checksums of migrations that have already been applied.
+prisma/migrations/** -text
+prisma/migration-archive/** -text

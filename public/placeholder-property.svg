@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title">
+  <title id="title">Property photo unavailable</title>
+  <rect width="800" height="500" fill="#edf2f7"/>
+  <path d="M270 240 400 135 530 240v145H270Z" fill="#d7e2ee" stroke="#8ba2ba" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M370 385V285h60v100" fill="#edf2f7" stroke="#8ba2ba" stroke-width="8"/>
+  <text x="400" y="445" text-anchor="middle" font-family="sans-serif" font-size="22" fill="#536a82">Property photo unavailable</text>
+</svg>

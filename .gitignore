@@ -1,0 +1,43 @@
+node_modules/
+.next/
+next-env.d.ts
+out/
+coverage/
+artifacts/
+desktop.ini
+Thumbs.db
+.DS_Store
+/.agents/
+/.claude/
+/.cursor/
+/.devin/
+/.figma/
+*_RESULTS.json
+*.pem
+*.key
+*.p12
+*.pfx
+*.dump
+*.backup
+.uploads/
+dist/
+build/
+.cache/
+.env*
+!.env.example
+.vite/
+vite.config.*.timestamp-*
+*.tsbuildinfo
+*-debug.log*
+logs/
+*.log
+.claude-replay.*
+.tmp-*
+/.figma/design-context/
+
+# Platform-managed agentplat state, not project source. In the
+# client-initiated single-repo workspace layout (make's `Path: "."` spec) the
+# repo root IS the workspace root, so these land inside this repo rather than
+# beside it.
+/.plugins/
+/.opencode-skills/

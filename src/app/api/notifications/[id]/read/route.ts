@@ -1,0 +1,2 @@
+import{NextRequest,NextResponse}from'next/server';import{tryAuth}from'@/lib/auth-guard';import{withUserContext}from'@/lib/db-session';
+export async function PUT(req:NextRequest,{params}:{params:Promise<{id:string}>}){const[u,e]=await tryAuth(req);if(e)return e;const{id}=await params;const r=await withUserContext(u!.userId,tx=>tx.notification.updateMany({where:{id,userId:u!.userId},data:{isRead:true,read_at:new Date()}}));return r.count?NextResponse.json({message:'Notification marked read'}):NextResponse.json({error:'Notification not found'},{status:404})}
